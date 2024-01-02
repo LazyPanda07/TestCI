@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  docker-unreal-engine:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,9 @@ jobs:
         run: sudo apt install docker
 
       - name: Pull
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin docker pull ghcr.io/epicgames/unreal-engine:dev-5.3.2
+        run: |
+            echo ${{ secrets.GITHUB_TOKEN }} | sudo docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            sudo docker pull ghcr.io/epicgames/unreal-engine:dev-5.3.2
 
       - name: Run
         run: docker run --rm unreal-engine:dev-5.3.2
