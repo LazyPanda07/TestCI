@@ -1,25 +1,21 @@
 name: CI
 
 on:
-  push:
-    branches: ["master"]
   workflow_dispatch:
 
 jobs:
-  docker-unreal-engine:
+  build-unreal-engine:
     runs-on: ubuntu-latest
     permissions: read-all
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Get Unreal Engine
+        uses: actions/checkout@v4
+        with: 
+          repository: EpicGames/UnrealEngine
+          ref: release
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: addnab/docker-run-action@v3
-        with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: ghcr.io/epicgames
-          image: ghcr.io/epicgames/unreal-engine:dev-5.3.2
-          options: -v ${{ github.workspace }}:/work -e ABC=123
-          run: |
-              echo "Print"
-              ls /work/
+      - name: Current directory
+        run: ls
+        
