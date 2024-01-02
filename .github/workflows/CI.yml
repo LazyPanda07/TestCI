@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  push:
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -14,8 +16,7 @@ jobs:
         with: 
           repository: EpicGames/UnrealEngine
           ref: release
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN  }}
 
       - name: Current directory
         run: ls
-        
