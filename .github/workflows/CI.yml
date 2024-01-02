@@ -8,8 +8,6 @@ on:
 jobs:
   build-unreal-engine:
     environment: UNREAL_ENGINE
-    env:
-      TOKEN: ${{ secrets.ACCESS_TOKEN }}
     runs-on: ubuntu-latest
     permissions: read-all
 
@@ -19,7 +17,7 @@ jobs:
         with: 
           repository: EpicGames/UnrealEngine
           ref: release
-          token: ${{ env.TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: Current directory
-        run: ls
+      - name: Build Unreal Engine
+        run: ./Setup.sh
