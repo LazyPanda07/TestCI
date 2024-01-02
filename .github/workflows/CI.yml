@@ -21,3 +21,6 @@ jobs:
 
       - name: Build Unreal Engine
         run: ./Setup.sh
+
+      - name: Current directory
+        run: ls
