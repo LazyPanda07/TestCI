@@ -17,12 +17,9 @@ jobs:
         with:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: gcr.io
-          image: epicgames/unreal-engine:dev-5.3.2
+          registry: ghcr.io/epicgames
+          image: unreal-engine:dev-5.3.2
           options: -v ${{ github.workspace }}:/work -e ABC=123
           run: |
-              echo "Running Script"
+              echo "Print"
               ls /work/
-
-      - name: Run
-        run: docker run --rm unreal-engine:dev-5.3.2
