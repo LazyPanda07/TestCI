@@ -10,12 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Update
-        run: sudo apt update && sudo apt upgrade
-
-      - name: Install GCC-13.2
-        run: sudo apt install gcc-13 g++-13
-
       - name: Get GCC version
         run: echo $(/usr/bin/gcc-13 --version)
 
