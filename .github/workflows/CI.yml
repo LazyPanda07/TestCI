@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get GCC version
+      - name: CMake version
+        run: echo $(cmake --version)
+
+      - name: GCC version
         run: echo $(/usr/bin/gcc-13 --version)
 
-      - name: Get G++ version
+      - name: G++ version
         run: echo $(/usr/bin/g++-13 --version)
