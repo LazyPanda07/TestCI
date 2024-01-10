@@ -6,21 +6,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-unreal-engine:
-    environment: UNREAL_ENGINE
+  gcc:
     runs-on: ubuntu-latest
-    permissions: read-all
 
     steps:
-      - name: Get Unreal Engine
-        uses: actions/checkout@v4
-        with: 
-          repository: EpicGames/UnrealEngine
-          ref: release
-          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Get GCC version
+        run: echo gcc --version
 
-      - name: Build Unreal Engine
-        run: ./Setup.sh
-
-      - name: Current directory
-        run: ls
+      - name: Get G++ version
+        run: echo g++ --version
