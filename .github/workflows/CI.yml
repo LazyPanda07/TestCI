@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Get GCC version
-        run: echo gcc --version
+        run: echo $(gcc --version)
 
       - name: Get G++ version
-        run: echo g++ --version
+        run: echo $(g++ --version)
