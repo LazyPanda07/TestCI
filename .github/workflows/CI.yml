@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
-    - uses: LazyPanda07/get-gtest
+    - uses: LazyPanda07/get-gtest@master
       with:
         install-path: new-path/make-install
 
