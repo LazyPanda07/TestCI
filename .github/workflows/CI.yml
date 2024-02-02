@@ -1,4 +1,3 @@
-name: CI
 
 on:
   push:
@@ -6,15 +5,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  gcc:
-    runs-on: ubuntu-latest
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, windows-latest]
+    
+    runs-on: ${{ matrix.platform }}
 
     steps:
-      - name: CMake version
-        run: echo $(cmake --version)
+    - uses: LazyPanda07/get-gtest
+      with:
+        install-path: new-path/make-install
 
-      - name: GCC version
-        run: echo $(/usr/bin/gcc-13 --version)
-
-      - name: G++ version
-        run: echo $(/usr/bin/g++-13 --version)
+    - name: Print result
+      run: ls new-path/make-install
