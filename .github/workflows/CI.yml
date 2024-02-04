@@ -6,16 +6,12 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        platform: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
     
-    runs-on: ${{ matrix.platform }}
-
     steps:
-    - uses: LazyPanda07/get-gtest@master
-      with:
-        install-path: new-path/make-install
-
-    - name: Print result
-      run: ls new-path/make-install
+    - name: Variable
+      run: |
+        mkdir Debug_Windows
+        mkdir DebugDLL_Windows
+        export TEST_VARIABLE=$(ls | grep Windows)
+        echo ${TEST_VARIABLE}
