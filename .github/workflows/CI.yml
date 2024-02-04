@@ -13,9 +13,7 @@ jobs:
       run: |
         mkdir Debug_Windows
         mkdir DebugDLL_Windows
-        export TEST_VARIABLE=$(ls | grep Windows)
-        echo "TEST_VARIABLE=${TEST_VARIABLE}" >> $Env:GITHUB_ENV
+        echo "TEST_VARIABLE=$(ls | grep Windows)" >> $Env:GITHUB_ENV
 
     - name: Print
       run: echo ${{ env.TEST_VARIABLE }}
-      
