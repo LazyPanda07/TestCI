@@ -18,6 +18,7 @@ jobs:
         repository: LazyPanda07/JSON
 
     - name: Test
+      shell: cmd
       run: |
           mkdir build
           cd build
