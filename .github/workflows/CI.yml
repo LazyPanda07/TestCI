@@ -6,14 +6,21 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
-    - name: Variable
-      run: |
-        mkdir Debug_Windows
-        mkdir DebugDLL_Windows
-        echo "TEST_VARIABLE="$(ls | grep Windows)"" >> ${GITHUB_ENV}
+    - name: Enable NMake
+      uses: ilammy/msvc-dev-cmd@v1.13.0
 
-    - name: Print
-      run: echo ${{ env.TEST_VARIABLE }}
+    - name: Get JSON
+      uses: actions/checkout@v4
+      with:
+        repository: LazyPanda07/JSON
+
+    - name: Test
+      run: |
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release ..
+          nmake install
+
