@@ -18,10 +18,9 @@ jobs:
         repository: LazyPanda07/JSON
 
     - name: Test
-      shell: cmd
       run: |
           mkdir build
           cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -G "NMake Makefiles" ..
           nmake install
 
