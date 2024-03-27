@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Install JDK 17
+      run: sudo apt install openjdk-17-jdk
+
     - name: Get Android SDK
       run: wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O tools.zip
 
