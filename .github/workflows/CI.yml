@@ -21,7 +21,7 @@ jobs:
     - name: Setup Android SDK
       run: |
         unzip tools.zip
-        # shopt -s extglob
+        shopt -s extglob
         cd cmdline-tools
         mkdir latest
         mv !(latest) latest/
