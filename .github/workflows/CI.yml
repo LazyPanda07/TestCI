@@ -6,9 +6,9 @@ on:
 
 env:
   android-version: 34
-  sdk-install-name: "platforms;android-34"
+  sdk-install-name: platforms;android-34
   ndk-version: 26.2.11394342
-  ndk-install-name: "ndk;26.2.11394342"
+  ndk-install-name: ndk;26.2.11394342
 
 jobs:
   test:
@@ -35,8 +35,8 @@ jobs:
         mkdir -p Android/Sdk
         mv cmdline-tools Android/Sdk
         cd Android/Sdk/cmdline-tools/latest/bin
-        yes | ./sdkmanager ${{ env.sdk-install-name }}
-        yes | ./sdkmanager --install ${{ env.ndk-install-name }}
+        yes | ./sdkmanager "${{ env.sdk-install-name }}"
+        yes | ./sdkmanager --install "${{ env.ndk-install-name }}"
         yes | ./sdkmanager --licenses
 
     - name: Get WebFramework
