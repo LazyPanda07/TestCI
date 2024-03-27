@@ -16,7 +16,7 @@ jobs:
     
     steps:
     - name: Get Android SDK
-      run: wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -o tools.zip
+      run: wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O tools.zip
 
     - name: Setup Android SDK
       run: |
