@@ -54,7 +54,9 @@ jobs:
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSHARED_WEB_FRAMEWORK=ON -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake -G Ninja ..
+        ls ${NDK_PATH}/build/cmake
+        ls -al ${NDK_PATH}/build/cmake/android.toolchain.cmake
+        cmake -DCMAKE_BUILD_TYPE=Release -DSHARED_WEB_FRAMEWORK=ON -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
         make install -j $(nproc)
 
     - name: Upload artifacts
