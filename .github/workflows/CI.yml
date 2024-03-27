@@ -43,23 +43,23 @@ jobs:
         mkdir -p Android/Sdk
         mv cmdline-tools Android/Sdk
         cd Android/Sdk/cmdline-tools/latest/bin
+        yes | ./sdkmanager --licenses
         ./sdkmanager "${{ env.sdk-install-name }}"
         ./sdkmanager --install "${{ env.ndk-install-name }}"
-        yes | ./sdkmanager --licenses
 
     - name: Build
       run: |
         ls Android/Sdk
-        export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
-        export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
-        export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
-        mkdir build
-        cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DSHARED_WEB_FRAMEWORK=ON -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
-        make install -j $(nproc)
+    #     export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
+    #     export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
+    #     export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
+    #     mkdir build
+    #     cd build
+    #     cmake -DCMAKE_BUILD_TYPE=Release -DSHARED_WEB_FRAMEWORK=ON -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
+    #     make install -j $(nproc)
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        path: build/install-dir
-        name: WebFramework-android-34
+    # - name: Upload artifacts
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     path: build/install-dir
+    #     name: WebFramework-android-34
