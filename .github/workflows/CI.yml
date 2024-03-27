@@ -35,10 +35,9 @@ jobs:
         mkdir -p Android/Sdk
         mv cmdline-tools Android/Sdk
         cd Android/Sdk/cmdline-tools/latest/bin
+        yes | ./sdkmanager ${{ env.sdk-install-name }}
+        yes | ./sdkmanager --install ${{ env.ndk-install-name }}
         yes | ./sdkmanager --licenses
-        ./sdkmanager --list
-        ./sdkmanager ${{ env.sdk-install-name }}
-        ./sdkmanager --install ${{ env.ndk-install-name }}
 
     - name: Get WebFramework
       uses: actions/checkout@v4
