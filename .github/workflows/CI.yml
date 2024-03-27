@@ -21,6 +21,13 @@ jobs:
         java-version: 17
         distribution: adopt
 
+    - name: Get WebFramework
+      uses: actions/checkout@v4
+      with:
+        repository: LazyPanda07/WebFramework
+        ref: dev
+        submodules: recursive
+
     - name: Get Android SDK
       run: wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O tools.zip
 
@@ -40,16 +47,8 @@ jobs:
         ./sdkmanager --install "${{ env.ndk-install-name }}"
         yes | ./sdkmanager --licenses
 
-    - name: Get WebFramework
-      uses: actions/checkout@v4
-      with:
-        repository: LazyPanda07/WebFramework
-        ref: dev
-        submodules: recursive
-
     - name: Build
       run: |
-        ls
         export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
         export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
