@@ -36,6 +36,7 @@ jobs:
         mv cmdline-tools Android/Sdk
         cd Android/Sdk/cmdline-tools/latest/bin
         yes | ./sdkmanager --licenses
+        ./sdkmanager --list
         ./sdkmanager ${{ env.sdk-install-name }}
         ./sdkmanager --install ${{ env.ndk-install-name }}
 
