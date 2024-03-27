@@ -49,7 +49,7 @@ jobs:
 
     - name: Build
       run: |
-        ls $(pwd)/Android/Sdk
+        ls
         export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
         export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
