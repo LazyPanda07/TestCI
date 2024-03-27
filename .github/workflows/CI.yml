@@ -27,6 +27,7 @@ jobs:
     - name: Setup Android SDK
       run: |
         unzip tools.zip
+        rm -rf tools.zip
         shopt -s extglob
         cd cmdline-tools
         mkdir latest
@@ -35,8 +36,8 @@ jobs:
         mkdir -p Android/Sdk
         mv cmdline-tools Android/Sdk
         cd Android/Sdk/cmdline-tools/latest/bin
-        yes | ./sdkmanager "${{ env.sdk-install-name }}"
-        yes | ./sdkmanager --install "${{ env.ndk-install-name }}"
+        ./sdkmanager "${{ env.sdk-install-name }}"
+        ./sdkmanager --install "${{ env.ndk-install-name }}"
         yes | ./sdkmanager --licenses
 
     - name: Get WebFramework
@@ -48,9 +49,12 @@ jobs:
 
     - name: Build
       run: |
-        export NDK_PATH=Android/Sdk/ndk/${{ env.ndk-version }}
+        export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
         export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
+        ls ${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/
+        ${CC} --version
+        ${CXX} --version
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DSHARED_WEB_FRAMEWORK=ON -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
