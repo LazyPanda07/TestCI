@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  android-version: 34
+  android-version: android-34
   sdk-install-name: platforms;android-34
   ndk-version: 26.2.11394342
   ndk-install-name: ndk;26.2.11394342
