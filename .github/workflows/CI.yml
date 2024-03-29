@@ -21,8 +21,8 @@ jobs:
         java-version: 17
         distribution: adopt
 
-    - name: Setup clang
-      run: sudo apt install -y clang
+    - name: Test
+      run: /sbin/ldconfig -p | grep stdc++
 
     - name: Get WebFramework
       uses: actions/checkout@v4
