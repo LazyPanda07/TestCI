@@ -22,7 +22,7 @@ jobs:
         distribution: adopt
 
     - name: Setup clang
-      run: sudo apt install -y clang clang++
+      run: sudo apt install -y clang
 
     - name: Get WebFramework
       uses: actions/checkout@v4
