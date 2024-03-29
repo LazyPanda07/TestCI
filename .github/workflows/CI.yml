@@ -22,7 +22,7 @@ jobs:
         distribution: adopt
 
     - name: Test
-      run: /sbin/ldconfig -p | grep stdc++
+      run: strings /lib/x86_64-linux-gnu/libstdc++.so.6 | grep LIBCXX
 
     - name: Get WebFramework
       uses: actions/checkout@v4
