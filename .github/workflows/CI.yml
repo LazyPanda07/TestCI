@@ -24,7 +24,7 @@ jobs:
     - name: Get WebFramework
       uses: actions/checkout@v4
       with:
-        repository: LazyPanda07/ThreadPool
+        repository: LazyPanda07/WebFramework
         ref: dev
         submodules: recursive
 
