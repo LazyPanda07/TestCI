@@ -46,6 +46,7 @@ jobs:
         yes | ./sdkmanager --licenses
         ./sdkmanager "${{ env.sdk-install-name }}"
         ./sdkmanager --install "${{ env.ndk-install-name }}"
+        ./sdkmanager --list | grep ndk
 
     - name: Build
       run: |
