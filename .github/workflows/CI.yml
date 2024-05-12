@@ -7,8 +7,9 @@ on:
 env:
   android-version: android-34
   sdk-install-name: platforms;android-34
-  ndk-version: 26.3.11579264
-  ndk-install-name: ndk;26.3.11579264
+  ndk-version: 27.0.11718014
+  ndk-install-name: ndk;27.0.11718014
+  repository-name: JSON
 
 jobs:
   test:
@@ -21,11 +22,11 @@ jobs:
         java-version: 17
         distribution: adopt
 
-    - name: Get WebFramework
+    - name: Get JSON
       uses: actions/checkout@v4
       with:
-        repository: LazyPanda07/WebFramework
-        ref: dev
+        repository: LazyPanda07/${{ env.repository-name }}
+        ref: master
         submodules: recursive
 
     - name: Get Android SDK
@@ -63,4 +64,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         path: build/install-dir
-        name: ThreadPool-android-34
+        name: ${{ env.repository-name }}-android
