@@ -18,7 +18,7 @@ jobs:
     steps:
     - name: GCC
       run: |
-          sudo apt install gcc g++
+          sudo apt upgrade
           ls /usr/bin | grep gcc
 
     - name: Setup JDK 17
