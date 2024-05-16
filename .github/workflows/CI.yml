@@ -17,7 +17,7 @@ jobs:
     
     steps:
     - name: GCC
-      run: sudo find / -name gcc
+      run: sudo apt update && sudo apt install g++-13 gcc-13
 
     - name: Setup JDK 17
       uses: actions/setup-java@v3
