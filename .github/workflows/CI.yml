@@ -17,9 +17,7 @@ jobs:
     
     steps:
     - name: GCC
-      run: |
-          sudo apt upgrade
-          ls /usr/bin | grep gcc
+      run: lsb_release -a
 
     - name: Setup JDK 17
       uses: actions/setup-java@v3
