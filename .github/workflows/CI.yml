@@ -9,7 +9,7 @@ env:
   sdk-install-name: platforms;android-34
   ndk-version: 27.0.11718014
   ndk-install-name: ndk;27.0.11718014
-  repository-name: JSON
+  repository-name: WebFramework
 
 jobs:
   test:
@@ -25,11 +25,11 @@ jobs:
         java-version: 17
         distribution: adopt
 
-    - name: Get JSON
+    - name: Get WebFramework
       uses: actions/checkout@v4
       with:
         repository: LazyPanda07/${{ env.repository-name }}
-        ref: master
+        ref: dev
         submodules: recursive
 
     - name: Get Android SDK
