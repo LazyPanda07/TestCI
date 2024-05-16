@@ -18,7 +18,7 @@ jobs:
     steps:
     - name: GCC
       run: |
-          sudo apt install gcc-13 g++-13
+          sudo apt install gcc g++
           ls /usr/bin | grep gcc
 
     - name: Setup JDK 17
