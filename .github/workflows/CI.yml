@@ -26,7 +26,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: opencv/${{ env.repository-name }}
-        ref: master
+        ref: 92387b1
         submodules: recursive
 
     - name: Get Android SDK
@@ -57,7 +57,7 @@ jobs:
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install-dir -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
         make -j $(nproc)
 
     - name: Upload artifacts
