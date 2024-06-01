@@ -31,7 +31,6 @@ jobs:
           CC: arm-linux-gnueabihf-gcc
           CXX: arm-linux-gnueabihf-g++
         run: |
-          cd JSON
           mkdir build
           cd build
           cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../JSON .. && make install -j $(nproc)
@@ -42,7 +41,7 @@ jobs:
           path: build/install-dir
           name: JSON-ARM
 
-          
+
   test:
     runs-on: ubuntu-20.04
     
