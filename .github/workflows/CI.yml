@@ -12,6 +12,37 @@ env:
   repository-name: opencv
 
 jobs:
+  arm:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Install arm cross compiler
+        run: sudo apt install gcc-arm-linux-gnueabi binutils-arm-linux-gnueabi
+
+      - name: Get JSON
+        uses: actions/checkout@v4
+        with:
+          repository: LazyPanda07/JSON
+          ref: master
+          submodules: recursive
+
+      - name: Build
+        env: 
+          CC: arm-linux-gnueabihf-gcc
+          CXX: arm-linux-gnueabihf-g++
+        run: |
+          cd JSON
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../JSON .. && make install -j $(nproc)
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: build/install-dir
+          name: JSON-ARM
+
+          
   test:
     runs-on: ubuntu-20.04
     
