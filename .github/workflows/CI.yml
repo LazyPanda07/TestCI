@@ -12,12 +12,12 @@ env:
   repository-name: opencv
 
 jobs:
-  arm:
+  Valgrind:
     runs-on: ubuntu-24.04
 
     steps:
       - name: Install Valgrind
-        run: sudo apt valgrind
+        run: sudo apt install -y valgrind
 
 
 
