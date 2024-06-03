@@ -13,11 +13,11 @@ env:
 
 jobs:
   Valgrind:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Install Valgrind
-        run: valgrind ls .
+      - name: Install
+        run: sudo apt install gcc-13 g++-13
 
 
 
