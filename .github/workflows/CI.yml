@@ -19,7 +19,7 @@ jobs:
       - name: Install
         run: |
           sudo apt install gcc g++
-          echo gcc --version
+          gcc --version
 
 
 
