@@ -18,8 +18,7 @@ jobs:
     steps:
       - name: Install
         run: |
-          sudo apt install gcc g++
-          gcc --version
+          ls /usr/bin | grep gcc
 
 
 
