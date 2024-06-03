@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Install
         run: |
-          echo ${CXX} --version
+          echo gcc --version
 
 
 
