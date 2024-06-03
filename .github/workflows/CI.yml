@@ -18,7 +18,10 @@ jobs:
     steps:
       - name: Install
         run: |
-          ls /usr/bin | grep gcc
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+          sudo apt update
+          sudo apt install gcc-13 g++-13
+          gcc --version
 
 
 
