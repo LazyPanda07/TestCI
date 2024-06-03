@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
           sudo apt update
-          sudo apt install gcc
+          sudo apt upgrade
           gcc --version
 
 
