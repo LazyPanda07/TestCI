@@ -20,7 +20,9 @@ jobs:
         run: |
           export CC=/usr/bin/gcc-13
           export CXX=/usr/bin/g++-13
-          echo ${CC} --version
+          echo "#include <iostream> int main() { std::cout << "Hello, World!" << std::endl; return 0; }" >> main.cpp
+          ${CXX} main.cpp
+          ./a.out
 
 
 
