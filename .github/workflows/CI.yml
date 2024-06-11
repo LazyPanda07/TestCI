@@ -12,7 +12,7 @@ env:
   repository-name: opencv
 
 jobs:
-  Installing:
+  Python:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,8 +21,9 @@ jobs:
           sudo apt update
           wget https://github.com/python/cpython/archive/refs/tags/v3.13.0b2.zip
           unzip v3.13.0b2.zip -d Python
-          cd Python
-          cd $(ls)
+          cd Python/cpython-3.13.0b2
+          ./configure --enable-optimizations --with-lto --disable-gil
+          sudo make install -j $(nproc)
 
 
 
