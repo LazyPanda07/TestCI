@@ -23,7 +23,7 @@ jobs:
           unzip v3.13.0b2.zip -d Python
           cd Python/cpython-3.13.0b2
           ./configure --enable-optimizations --with-lto --disable-gil
-          sudo make install -j $(nproc)
+          sudo make altinstall -j $(nproc)
 
 
 
