@@ -16,12 +16,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install
+      - name: Install Python
         run: |
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
           sudo apt update
-          sudo apt install gcc-13 g++-13
-          gcc --version
+          wget https://github.com/python/cpython/archive/refs/tags/v3.13.0b2.zip
+          unzip v3.13.0b2.zip -d Python
+          cd Python
+          cd $(ls)
 
 
 
