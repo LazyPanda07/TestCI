@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install Python
+        uses: actions/setup-python
+        with:
+          python-version: '3.13.0-beta.3'
+
       - name: Python
         run: |
           python --version
