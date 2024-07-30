@@ -7,8 +7,8 @@ on:
 env:
   android-version: android-34
   sdk-install-name: platforms;android-34
-  ndk-version: 27.0.11718014
-  ndk-install-name: ndk;27.0.11718014
+  ndk-version: 27.0.12077973
+  ndk-install-name: ndk;27.0.12077973
   repository-name: WebFramework
 
 jobs:
@@ -21,6 +21,9 @@ jobs:
       with:
         java-version: 17
         distribution: adopt
+
+    - name: Install dependencies
+      run: sudo apt install uuid-dev
 
     - name: Get ${{ env.repository-name }}
       uses: actions/checkout@v4
@@ -57,11 +60,11 @@ jobs:
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
         mkdir build
         cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=install-dir -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
-        make -j $(nproc)
+        cmake -DCMAKE_INSTALL_PREFIX=../WebFrameworkLibrary -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=${{ env.android-version }} -DCMAKE_TOOLCHAIN_FILE=${NDK_PATH}/build/cmake/android.toolchain.cmake ..
+        make install -j $(nproc)
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        path: build/install-dir
+        path: WebFrameworkLibrary
         name: ${{ env.repository-name }}-android
