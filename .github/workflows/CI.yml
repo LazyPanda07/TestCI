@@ -22,9 +22,6 @@ jobs:
         java-version: 17
         distribution: adopt
 
-    - name: Install dependencies
-      run: sudo apt install uuid-dev
-
     - name: Get ${{ env.repository-name }}
       uses: actions/checkout@v4
       with:
@@ -54,7 +51,6 @@ jobs:
 
     - name: Build
       run: |
-        ls Android/Sdk
         export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
         export CC=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang
         export CXX=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-${{ env.android-version }}-clang++
