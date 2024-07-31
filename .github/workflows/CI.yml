@@ -9,7 +9,7 @@ env:
   sdk-install-name: platforms;android-34
   ndk-version: 27.0.12077973
   ndk-install-name: ndk;27.0.12077973
-  repository-name: JSON
+  repository-name: Localization
 
 jobs:
   test:
