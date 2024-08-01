@@ -52,7 +52,7 @@ jobs:
     - name: Build
       run: |
         export NDK_PATH=$(pwd)/Android/Sdk/ndk/${{ env.ndk-version }}
-        wget -O CMakeLists.txt https://pastebin.com/raw/PE9EjxA6
+        wget -O CMakeLists.txt https://pastebin.com/raw/AJg6vk1B
         mkdir build
         cd build
         ../configure
