@@ -22,8 +22,7 @@ jobs:
         repository: LazyPanda07/WebFramework
         latest: true
         extract: true
-        tarBall: false
-        zipBall: false
+        fileName: "linux.zip"
 
     - name: Repository
       run: ls
