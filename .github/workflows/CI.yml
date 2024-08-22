@@ -16,10 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Get latests release
+    - name: Get latest release
       uses: pozetroninc/github-action-get-latest-release@v0.8.0
       with:
-        repository: LazyPanda07/WebFramework
+        owner: LazyPanda07
+        repo: WebFramework
 
     - name: Repository
       run: ls
