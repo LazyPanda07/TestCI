@@ -25,7 +25,7 @@ jobs:
         fileName: "linux.zip"
 
     - name: Repository
-      run: ls
+      run: echo ${{ github.repository }}
                 
             
     # - name: Setup JDK 17
