@@ -17,10 +17,10 @@ jobs:
     
     steps:
     - name: Get latest release
-      uses: pozetroninc/github-action-get-latest-release@v0.8.0
+      uses: robinraju/release-downloader@v1.11
       with:
-        owner: LazyPanda07
-        repo: WebFramework
+        repository: LazyPanda07/WebFramework
+            
 
     - name: Repository
       run: ls
