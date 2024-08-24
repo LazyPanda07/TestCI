@@ -13,7 +13,7 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     
     steps:
     - name: Get latest release
@@ -26,6 +26,9 @@ jobs:
 
     - name: Repository
       run: echo ${{ github.repository }}
+
+    - name: Check nuget
+      run: nuget
                 
             
     # - name: Setup JDK 17
