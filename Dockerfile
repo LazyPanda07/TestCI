@@ -29,7 +29,7 @@ RUN curl -s --compressed "https://LazyPanda07.github.io/web_framework_ppa/KEY.gp
 RUN curl -s --compressed -o /etc/apt/sources.list.d/web_framework.list "https://LazyPanda07.github.io/web_framework_ppa/web_framework.list"
 RUN apt update
 
-RUN apt install web-framework=1.0.0
+RUN apt install -y web-framework=1.0.0
 
 WORKDIR /opt/web_framework_server
 
