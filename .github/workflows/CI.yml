@@ -13,6 +13,11 @@ jobs:
     - uses: actions/checkout@v4
       
     - name: Build docker
+      run: sudo docker build . -t test_container
+
+    - name: Build another docker
+      working-directory: test_build
       run: |
-          sudo docker build . -t test_container
+          sudo docker build . -t another_test_container
           sudo docker images
+          sudo docker run another_test_container:latest
