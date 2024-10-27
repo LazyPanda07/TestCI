@@ -8,11 +8,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    container:
-      image: lazypanda07/ubuntu_cxx20:android
     
     steps:
-    - run: |
-        echo "User: $(whoami)"
-        chown -R $(whoami) /opt/flutter
-        flutter doctor -v
+    - uses: actions/checkout@v4
