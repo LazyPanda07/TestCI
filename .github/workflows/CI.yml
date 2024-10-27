@@ -12,4 +12,6 @@ jobs:
       image: lazypanda07/ubuntu_cxx20:android
     
     steps:
-    - run: ls -l /opt/
+    - run: |
+        ls -l /opt/
+        flutter doctor -v
