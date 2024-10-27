@@ -13,6 +13,5 @@ jobs:
     
     steps:
     - run: |
-        ls -l /opt/
-        chmod 666 /opt/flutter
+        chown -R ${USER} /opt/flutter
         flutter doctor -v
