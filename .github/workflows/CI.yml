@@ -13,6 +13,6 @@ jobs:
     
     steps:
     - run: |
-        echo "User: ${USER}"
-        chown -R ${USER} /opt/flutter
+        echo "User: $(whoami)"
+        chown -R $(whoami) /opt/flutter
         flutter doctor -v
