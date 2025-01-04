@@ -8,6 +8,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/epicgames/unreal-engine:dev-slim-5.5
     
     steps:
     - uses: actions/checkout@v4
+
+    - name: Print Unreal Engine version
+      run: ls /usr/bin
