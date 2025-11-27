@@ -10,7 +10,9 @@ jobs:
     runs-on: windows-latest
     
     steps:
+    - name: Extend PATH
+      run: echo "C:\Program Files\dotnet\host\fxr\8.0.21\" >> $GITHUB_PATH
+
     - name: hostfxr.dll
       shell: cmd
-      run: echo %PATH%
-
+      run: where hostfxr.dll
