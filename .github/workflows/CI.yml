@@ -11,5 +11,5 @@ jobs:
     
     steps:
     - name: hostfxr.dll
-      run: Get-ChildItem "C:\Program Files\dotnet\host\fxr" -Recurse -Filter hostfxr.dll
+      run: echo %PATH%
 
