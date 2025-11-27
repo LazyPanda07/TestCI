@@ -11,5 +11,6 @@ jobs:
     
     steps:
     - name: hostfxr.dll
+      shell: cmd
       run: echo %PATH%
 
