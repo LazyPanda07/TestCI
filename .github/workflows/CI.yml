@@ -15,4 +15,6 @@ jobs:
 
     - name: hostfxr.dll
       shell: cmd
-      run: where hostfxr.dll
+      run: |
+          echo "C:\Program Files\dotnet\host\fxr\8.0.21\" >> $GITHUB_PATH
+          where hostfxr.dll
