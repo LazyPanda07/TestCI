@@ -7,13 +7,8 @@ on:
 
 jobs:
   test-job:
-    runs-on: ubuntu-latest
-    container:
-      # image: ghcr.io/epicgames/unreal-engine:dev-slim-5.5
-      image: ghcr.io/lazypanda07/web_framework_dev:1.0.7
+    runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Print Unreal Engine version
-      run: ls /usr/bin
+    - name: hostfxr.dll
+      run: where hostfxr.dll
