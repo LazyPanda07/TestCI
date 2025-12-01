@@ -13,6 +13,7 @@ jobs:
     - name: hostfxr.dll
       shell: cmd
       run: |
+          dir "C:\Program Files\dotnet\host\fxr\"
           set PATH=%PATH%;"C:\Program Files\dotnet\host\fxr\8.0.21\"
           dir "C:\Program Files\dotnet\host\fxr\8.0.21\"
           where hostfxr.dll
