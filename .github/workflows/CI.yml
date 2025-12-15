@@ -20,8 +20,6 @@ jobs:
 
   linux-tests:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/lazypanda07/ubuntu_cxx20:24.04
     strategy:
       matrix:
         run: [./hello_cpp, ./hello_c, ./hello_csharp, python3 main.py]
@@ -43,5 +41,14 @@ jobs:
           - [ ON, ON, ON, ON ]    # cxx cc python csharp
 
     steps:
-      - run: echo ${{ matrix.samples }}
+      - name: First
+        run: echo ${{ matrix.samples[0] }}
         
+      - name: Second
+        run: echo ${{ matrix.samples[1] }}
+
+      - name: Third
+        run: echo ${{ matrix.samples[2] }}
+
+      - name: Fourth
+        run: echo ${{ matrix.samples[3] }}
