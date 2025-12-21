@@ -11,4 +11,4 @@ jobs:
     
     steps:
     - name: hostfxr
-      run: sudo find / -name libhostfxr.so
+      run: sudo find / -name hostfxr.h
