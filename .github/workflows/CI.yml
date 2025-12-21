@@ -7,48 +7,8 @@ on:
 
 jobs:
   test-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
-    - name: hostfxr.dll
-      shell: cmd
-      run: |
-          set PATH=C:\Program Files\dotnet\host\fxr\8.0.22\;%PATH%
-          dir "C:\Program Files\dotnet\host\fxr\8.0.22\"
-          dir "C:\Program Files\dotnet\host\fxr"
-          where hostfxr.dll
-
-  linux-tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        run: [./hello_cpp, ./hello_c, ./hello_csharp, python3 main.py]
-        samples: 
-          - [ ON, OFF, OFF, OFF ] # cxx
-          - [ OFF, ON, OFF, OFF ] # cc
-          - [ OFF, OFF, ON, OFF ] # python
-          - [ OFF, OFF, OFF, ON ] # csharp
-          - [ ON, ON, OFF, OFF ]  # cxx, cc
-          - [ ON, OFF, ON, OFF ]  # cxx, python
-          - [ OFF, ON, ON, OFF ]  # cc, python
-          - [ OFF, ON, OFF, ON ]  # cc, csharp
-          - [ OFF, OFF, ON, ON ]  # python csharp
-          - [ ON, OFF, OFF, ON ]  # csharp cxx
-          - [ ON, ON, ON, OFF ]   # cxx cc python
-          - [ OFF, ON, ON, ON ]   # cc python csharp
-          - [ ON, ON, ON, OFF ]   # python csharp cxx
-          - [ ON, ON, OFF, ON ]   # csharp cxx cc
-          - [ ON, ON, ON, ON ]    # cxx cc python csharp
-
-    steps:
-      - name: First
-        run: echo ${{ matrix.samples[0] }}
-        
-      - name: Second
-        run: echo ${{ matrix.samples[1] }}
-
-      - name: Third
-        run: echo ${{ matrix.samples[2] }}
-
-      - name: Fourth
-        run: echo ${{ matrix.samples[3] }}
+    - name: hostfxr
+      run: find / -name libhostfxr.so
