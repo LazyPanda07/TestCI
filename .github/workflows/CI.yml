@@ -6,7 +6,20 @@ on:
 
 
 jobs:
-  test-job:
+  windows-test-job:
+    runs-on: windows-latest
+
+    steps:
+    - name: hostfxr.dll
+      shell: cmd
+      run: |
+          set PATH=C:\Program Files\dotnet\host\fxr\8.0.22\;%PATH%
+          dir "C:\Program Files\dotnet\host\fxr\8.0.22\"
+          dir "C:\Program Files\dotnet\host\fxr"
+          where hostfxr.dll
+
+          
+  linux-test-job:
     runs-on: ubuntu-latest
     
     steps:
