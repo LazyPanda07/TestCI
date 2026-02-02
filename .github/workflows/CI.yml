@@ -25,3 +25,14 @@ jobs:
     steps:
     - name: hostfxr
       run: sudo find / -name hostfxr.h
+
+    - name: Install Python 3.13
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.13"
+      
+    - name: Upload Python
+      uses: actions/upload-artifact@v6
+      with: 
+        name: Python
+        path: ${{ env.Python3_ROOT_DIR }}
