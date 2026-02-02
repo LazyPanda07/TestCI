@@ -6,17 +6,17 @@ on:
 
 
 jobs:
-  windows-test-job:
-    runs-on: windows-latest
+  # windows-test-job:
+  #   runs-on: windows-latest
 
-    steps:
-    - name: hostfxr.dll
-      shell: cmd
-      run: |
-          set PATH=C:\Program Files\dotnet\host\fxr\8.0.22\;%PATH%
-          dir "C:\Program Files\dotnet\host\fxr\8.0.22\"
-          dir "C:\Program Files\dotnet\host\fxr"
-          where hostfxr.dll
+  #   steps:
+  #   - name: hostfxr.dll
+  #     shell: cmd
+  #     run: |
+  #         set PATH=C:\Program Files\dotnet\host\fxr\8.0.22\;%PATH%
+  #         dir "C:\Program Files\dotnet\host\fxr\8.0.22\"
+  #         dir "C:\Program Files\dotnet\host\fxr"
+  #         where hostfxr.dll
 
           
   linux-test-job:
@@ -26,10 +26,10 @@ jobs:
     - name: hostfxr
       run: sudo find / -name hostfxr.h
 
-    - name: Install Python 3.13
+    - name: Install Python 3.12
       uses: actions/setup-python@v6
       with:
-        python-version: "3.13"
+        python-version: "3.12"
       
     - name: Upload Python
       uses: actions/upload-artifact@v6
