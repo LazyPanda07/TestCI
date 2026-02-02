@@ -26,10 +26,10 @@ jobs:
     - name: hostfxr
       run: sudo find / -name hostfxr.h
 
-    - name: Install Python 3.12
+    - name: Install Python 3.13
       uses: actions/setup-python@v6
       with:
-        python-version: "3.12"
+        python-version: "3.13"
       
     - name: Upload Python
       uses: actions/upload-artifact@v6
