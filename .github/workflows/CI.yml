@@ -6,10 +6,14 @@ on:
 
 
 jobs:
-  # windows-test-job:
-  #   runs-on: windows-latest
+  windows-test-job:
+    runs-on: windows-latest
 
-  #   steps:
+    steps:
+      - run: echo "Hello"
+
+      - name: Docker
+        run: docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
   #     shell: cmd
   #     run: |
@@ -23,16 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: hostfxr
-      run: sudo find / -name hostfxr.h
+      - run: echo "Hello"
+    # - name: hostfxr
+    #   run: sudo find / -name hostfxr.h
 
-    - name: Install Python 3.13
-      uses: actions/setup-python@v6
-      with:
-        python-version: "3.13"
-      
-    - name: Upload Python
-      uses: actions/upload-artifact@v6
-      with: 
-        name: Python
-        path: ${{ env.Python3_ROOT_DIR }}
+    
