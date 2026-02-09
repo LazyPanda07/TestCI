@@ -12,10 +12,15 @@ jobs:
     steps:
       - run: echo "Hello"
 
-      - name: Docker
-        run: wsl
+      - name: Prepare wsl
+        run: |
+          wsl --install Ubuntu-24.04
+          wsl sudo apt update
+          wsl sudo apt install -y redis-server
+      
+      - name: Run Redis
+        run: wsl redis-server --port 8080 --requirepass password
 
-          # docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
   #     shell: cmd
   #     run: |
