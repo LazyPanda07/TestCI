@@ -12,9 +12,8 @@ jobs:
     steps:
       - run: echo "Hello"
 
-      - name: Docker CLI
-        shell: cmd
-        run: where DockerCli.exe
+      - name: Switch
+        run: "C:/Program Files/Docker/Docker/DockerCli.exe" -SwitchLinuxEngine
 
       - name: Docker
         run: docker run --rm alpine:latest echo "Hello from Linux on Windows!"
