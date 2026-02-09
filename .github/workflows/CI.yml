@@ -12,6 +12,10 @@ jobs:
     steps:
       - run: echo "Hello"
 
+      - name: Docker CLI
+        shell: cmd
+        run: where DockerCli.exe
+
       - name: Docker
         run: docker run --rm alpine:latest echo "Hello from Linux on Windows!"
 
