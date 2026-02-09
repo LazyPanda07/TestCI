@@ -13,7 +13,7 @@ jobs:
       - run: echo "Hello"
 
       - name: Docker
-        run: docker
+        run: docker run --rm alpine:latest echo "Hello from Linux on Windows!"
 
           # docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
