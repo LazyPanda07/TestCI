@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - run: echo "Hello"
+      # - run: echo "Hello"
 
       - name: Download Redis 7.4 for Windows
         run: |
@@ -21,7 +21,7 @@ jobs:
 
       - name: Start Redis
         shell: bash
-        run: ls
+        run: ls Redis-7.4.6-Windows-x64-msys2
 
       # - name: Prepare wsl
       #   run: |
