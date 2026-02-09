@@ -13,7 +13,9 @@ jobs:
       - run: echo "Hello"
 
       - name: Docker
-        run: docker pull lazypanda07/ubuntu_cxx20:24.04
+        run: docker
+
+          # docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
   #     shell: cmd
   #     run: |
