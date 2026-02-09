@@ -13,7 +13,7 @@ jobs:
       - run: echo "Hello"
 
       - name: Docker
-        run: docker run --platform linux/amd64 --rm ubuntu:24.04
+        run: wsl
 
           # docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
