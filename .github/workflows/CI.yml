@@ -12,11 +12,8 @@ jobs:
     steps:
       - run: echo "Hello"
 
-      - name: Switch
-        run: "C:/Program Files/Docker/Docker/DockerCli.exe" -SwitchLinuxEngine
-
       - name: Docker
-        run: docker run --rm alpine:latest echo "Hello from Linux on Windows!"
+        run: docker run --platform linux/amd64 --rm ubuntu:24.04
 
           # docker pull lazypanda07/ubuntu_cxx20:24.04
   #   - name: hostfxr.dll
