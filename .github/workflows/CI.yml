@@ -12,7 +12,14 @@ jobs:
     steps:
       - run: echo "Hello"
 
-      - run: docker pull redis:latest
+      - name: Download Redis for Windows
+        run: |
+          powershell -Command "Invoke-WebRequest -Uri https://github.com/redis-windows/redis-windows/releases/latest/download/redis-windows.zip -OutFile redis.zip"
+          Expand-Archive -Path redis.zip -DestinationPath .
+
+      - name: Start Redis
+        run: |
+          start-server.cmd .\redis-windows\redis-server.exe redis.conf --port 8080 --requirepass password
 
       # - name: Prepare wsl
       #   run: |
