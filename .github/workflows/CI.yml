@@ -13,11 +13,15 @@ jobs:
       - run: echo "Hello"
 
       - name: Download Redis 7.4 for Windows
-        shell: bash
         run: |
-          wget https://github.com/redis-windows/redis-windows/releases/download/7.4.6/Redis-7.4.6-Windows-x64-msys2.zip
-          unzip Redis-7.4.6-Windows-x64-msys2.zip -d .
-          ls
+          Invoke-WebRequest `
+            -Uri "https://github.com/redis-windows/redis-windows/releases/download/7.4.6/Redis-7.4.6-Windows-x64-msys2.zip" `
+            -OutFile redis.zip
+          Expand-Archive redis.zip -DestinationPath .
+
+      - name: Start Redis
+        shell: bash
+        run: ls
 
       # - name: Prepare wsl
       #   run: |
