@@ -14,10 +14,8 @@ jobs:
 
       - name: hostfxr.dll
         shell: cmd
-        run: |
-            set PATH=C:\Program Files\dotnet\host\fxr\10.0.2\;%PATH%
-            dir "C:\Program Files\dotnet\host\fxr\10.0.2\"
-            where hostfxr.dll
+        run: dir "C:\Program Files\dotnet\host\fxr"
+            
 
           
   linux-test-job:
