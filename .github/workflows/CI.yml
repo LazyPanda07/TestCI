@@ -25,6 +25,6 @@ jobs:
       - run: echo "Hello"
       
       - name: hostfxr
-        run: sudo find / -name hostfxr.h
+        run: sudo find / -name libhostfxr.so
 
     
