@@ -23,7 +23,8 @@ jobs:
     
     steps:
       - run: echo "Hello"
-    # - name: hostfxr
-    #   run: sudo find / -name hostfxr.h
+      
+      - name: hostfxr
+        run: sudo find / -name hostfxr.h
 
     
