@@ -20,8 +20,6 @@ jobs:
           
   linux-test-job:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/lazypanda07/ubuntu_cxx20:24.04
     
     steps:
       - run: echo "Hello"
