@@ -26,7 +26,7 @@ jobs:
       
       - name: Test
         run: |
-          FXR_PATH=$(printf ":%s" /usr/share/dotnet/host/fxr/10.*)
+          FXR_PATH=$(printf ":%s" /usr/share/dotnet/host/fxr/8.*)
           FXR_PATH=${FXR_PATH:1}
 
           echo ${FXR_PATH}
