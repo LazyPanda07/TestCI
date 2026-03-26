@@ -25,7 +25,7 @@ jobs:
       - run: echo "Hello"
       
       - name: Test
-        run: ls /usr/share/dotnet/host/fxr | grep 10.*
+        run: ls /usr/share/dotnet/host/fxr | grep 8.*
 
       - name: hostfxr
         run: sudo find / -name libhostfxr.so
