@@ -31,7 +31,27 @@ jobs:
 
           echo ${FXR_PATH}
 
-      - name: hostfxr
-        run: sudo find / -name libhostfxr.so
+      #- name: hostfxr
+      #  run: sudo find / -name libhostfxr.so
+
+  
+  linux-arm-test-job:
+    runs-on: ubuntu-24.04-arm
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          repository: LazyPanda07/WebFramework
+          ref: dev
+          submodules: recursive
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../WebFrameworkLibrary -G "Ninja" ..
+          cmake --build . -j
+          cmake --install .
+
 
     
