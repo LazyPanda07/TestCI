@@ -1,7 +1,8 @@
 
 on:
   push:
-    branches: [master]
+    branches: 
+      - main
   workflow_dispatch:
 
 
@@ -39,32 +40,10 @@ jobs:
     runs-on: ubuntu-24.04-arm
 
     steps:
-      - uses: actions/checkout@v6
-        with:
-          repository: LazyPanda07/WebFramework
-          ref: dev
-          submodules: recursive
-
-      - name: Install dependencies
+      - name: Setup Project
         run: |
-          sudo apt update
-          sudo apt install -y uuid-dev
-      
-      - name: Install Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: 3.14
-
-      - name: Install build with pip
-        run: python -m pip install build
-
-      - name: Build
-        run: |
-          mkdir build
-          cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=../WebFrameworkLibrary -DWITH_STACKTRACE=ON -G "Ninja" ..
-          cmake --build . -j
-          cmake --install .
+          printf "#include <iostream>\nint main(int argc, char** argv)\n{\nstd::cout << 123 << std::endl;\nreturn 0;\n}\n" > file.cpp
+          printf "cmake_minimum_required(VERSION 3.27.0)\nproject(Program)\nadd_library(${PROJECT_NAME} file.cpp)\nmessage(${CMAKE_HOST_SYSTEM_PROCESSOR})\nmessage(${CMAKE_SYSTEM_PROCESSOR}))" > CMakeLists.txt
 
 
     
