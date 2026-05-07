@@ -13,40 +13,11 @@ jobs:
     steps:
       - run: echo "Hello"
 
-      - name: hostfxr.dll
-        shell: cmd
-        run: dir "C:\Program Files\dotnet\host\fxr" # dir "C:\Program Files\dotnet\host\fxr\10.0.3"
-            
-
-          
   linux-test-job:
     runs-on: ubuntu-latest
     
     steps:
       - run: echo "Hello"
+
+      - run: echo "${{ github.ref_name }}"
       
-      - name: Test
-        run: |
-          FXR_PATH=$(printf ":%s" /usr/share/dotnet/host/fxr/8.*)
-          FXR_PATH=${FXR_PATH:1}
-
-          echo ${FXR_PATH}
-
-      #- name: hostfxr
-      #  run: sudo find / -name libhostfxr.so
-
-  
-  linux-arm-test-job:
-    runs-on: ubuntu-24.04-arm
-
-    steps:
-      - name: Install
-        run: |
-          sudo apt update 
-          sudo apt install -y dotnet-sdk-10.0
-
-      - name: First path
-        run: ls /usr/lib/dotnet/packs/
-          
-      - name: Second path
-        run: ls /usr/share/dotnet/packs/
