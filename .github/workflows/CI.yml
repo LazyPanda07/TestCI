@@ -11,13 +11,20 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - run: git clone https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git .
+
+      - name: Enable CL
+        uses: ilammy/msvc-dev-cmd@v1.13.0
+
       - run: echo "Hello"
 
   linux-test-job:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo "Hello"
+      - run: git clone https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git .
 
-      - run: echo "${{ github.ref_name }}"
+      - run: meson . build -Dprefix=$PWD/install && ninja -C build && ninja -C build install
+
+      - run: echo "Hello"
       
