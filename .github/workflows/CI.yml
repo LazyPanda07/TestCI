@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: apt install -y meson
+      - run: sudo apt install -y meson
 
       - run: git clone https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git .
 
