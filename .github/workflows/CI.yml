@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - run: apt install -y meson
+
       - run: git clone https://gitlab.freedesktop.org/pulseaudio/webrtc-audio-processing.git .
 
       - run: meson . build -Dprefix=$PWD/install && ninja -C build && ninja -C build install
