@@ -18,7 +18,8 @@ jobs:
         uses: microsoft/setup-msbuild@v3
 
       - name: ml64
-        run: where ml64
+        shell: bash
+        run: which ml64
 
       - name: cl
         run: where cl
