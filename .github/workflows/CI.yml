@@ -20,6 +20,9 @@ jobs:
       - name: ml
         run: where ml
 
+      - name: ml
+        run: where cl
+
       - run: echo "Hello"
 
   linux-test-job:
