@@ -35,9 +35,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          repository: LazyPanda07/HttpArena
-          ref: fix-web-framework
+          repository: Ardour/ardour
+          ref: 9.8
 
-      - name: Run
-        run: ./scripts/validate.sh web-framework-python
+      - name: Build
+        run: ./waf configure
       
