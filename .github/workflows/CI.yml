@@ -38,6 +38,9 @@ jobs:
           repository: Ardour/ardour
           ref: 9.8
 
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install -y libboost-all-dev
+
       - name: Build
         run: ./waf configure
       
